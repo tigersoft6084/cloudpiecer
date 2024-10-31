@@ -67,8 +67,9 @@ struct JsModuleTransformer {
 
 impl JsModuleTransformer {
     fn new(raw: String) -> Self {
-        let origin_path = "src/origins.txt";
-        let origins_text = fs::read_to_string(origin_path).expect("Failed to read file");
+        // let origin_path = "src/origins.txt";
+        // let origins_text = fs::read_to_string(origin_path).expect("Failed to read file");
+        let origins_text="at,boolean,nextSibling,random,anonymous,status,human,chlApiLanguage,display,responseText,managed,charCode,cached,add,translations,string,redirecting,message,invalid,atob,open,contentinfo,createObject,parent,touchstart,floor,metadata,interactive,splice,footer,chlApiOverrunBudget,turnstile,catch,min,center,set,isArray,readyState,appendChild,insertBefore,send,cloudflare,favicon,rtl,map,span,challenge,dir,chlApiWidget,style,msg,darkmode,alt,pow,pop,feedbackInit,overlay,check,toLowerCase,length,protocol,cursor,classList,url,onerror,chlApiOverrideDarkmode,test,wheel,from,class,pointer,zone,prototype,role,getResponseHeader,keys,page,replace,value,self,function,location,height,grid,crossorigin,time,click,padStart,isExtension,script,timeout,onclick,setAttribute,fromCharCode,cookie,call,ltr,visible,chlApiUrl,href,firstElementChild,body,push,bind,stack,index,flex,setRequestHeader,passive,column,now,event,console,onreadystatechange,cookies,line,log,innerText,pointerover,hidden,text,keydown,cookieEnabled,chlApiRumWidgetAge,reload,outdated,setTimeout,encode,loading,object,isSecureContext,lang,src,parseInt,substring,includes,split,block,startsWith,polyfills,subtle,getPrototype,top,errorInfoObject,err,then,join,hasOwnProperty,diagnostic,img,source,clearfix,navigator,inline,core,abs,overrun,this,slice,performance,ontimeout,digest,createTextNode,inner,chlApiSitekey,font,concat,widget,addEventListener,matchMedia,success,auto,stringify,browser,review,chlApiClientVersion,sort,revokeObject,match,https,window,title,parentNode,parse,apply,symbol,createElement,getOwnPropertyNames,to,postMessage,spinner,pointermove,hostname,number,application,content,heading,error,getTime,input,querySelector,terminate,lip,spacer,button,toString,removeChild,flow,document,visibility,address,bigint,mousemove,chlApi,setTime,alignItems,justifyContent,margin,head,type,matches";
         JsModuleTransformer {
             raw,
             result: String::new(),
@@ -76,8 +77,7 @@ impl JsModuleTransformer {
             agents: Vec::new(),
             // bosses: Vec::new(),
             origins: origins_text
-                .as_str()
-                .split("\n")
+                .split(",")
                 .map(|s| s.to_string())
                 .collect(),
             tangents: Vec::new(),
